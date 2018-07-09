@@ -4,7 +4,32 @@ const config = {
   unCssIgnore: [
     /active/
   ],
-  imagesCompression: true
+  imagesCompression: {
+    enabled: true,
+    imageminPngquant: {
+      speed: 8,
+      quality: 90
+    },
+    imageminZopfli: {
+      more: true
+    },
+    imageminGiflossy: {
+      optimizationLevel: 3,
+      optimize: 3,
+      lossy: 2
+    },
+    imageminSVGO: {
+      plugins: [{
+        removeViewBox: false
+      }]
+    },
+    imageminJpegtran: {
+      progressive: true
+    },
+    imageminMozjpeg: {
+      quality: 85
+    }
+  }
 }
 
 module.exports = config

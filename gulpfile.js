@@ -141,36 +141,19 @@ const serveHtml = gulp.series(buildHtml, watchHtml)
 const images = cb => {
   const stream = gulp.src(paths.src.images + '**/*')
     .pipe(changed(paths.dist.images + '**/*'))
-  if (build && config.imagesCompression) {
+  if (build && config.imagesCompression.enabled) {
     stream
       .pipe(imagemin([
         // png
-        imageminPngquant({
-          speed: 8,
-          quality: 90
-        }),
-        imageminZopfli({
-          more: true
-        }),
+        imageminPngquant(config.imagesCompression.imageminPngquant),
+        imageminZopfli(config.imagesCompression.imageminZopfli),
         // gif
-        imageminGiflossy({
-          optimizationLevel: 3,
-          optimize: 3,
-          lossy: 2
-        }),
+        imageminGiflossy(config.imagesCompression.imageminGiflossy),
         // svg
-        imagemin.svgo({
-          plugins: [{
-            removeViewBox: false
-          }]
-        }),
+        imagemin.svgo(config.imagesCompression.imageminSVGO),
         // jpg
-        imagemin.jpegtran({
-          progressive: true
-        }),
-        imageminMozjpeg({
-          quality: 85
-        })
+        imagemin.jpegtran(config.imagesCompression.imageminJpegtran),
+        imageminMozjpeg(config.imagesCompression.imageminMozjpeg)
       ]))
   }
   stream

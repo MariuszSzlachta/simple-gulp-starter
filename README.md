@@ -35,12 +35,21 @@ gulp build
 ```
 
 ### Configuration
-The are two options in `config.js` file that you can adjust to your needs.
+The are several options in `config.js` file that you can adjust to your needs.
 ```
 const config = {
   productionPath: '/',
   includingDepthLevel: 3,
-  unCssIgnore: []
+  unCssIgnore: [],
+  imagesCompression: {
+    enabled: true,
+    imageminPngquant: {...},
+    imageminZopfli: {...},
+    imageminGiflossy: {...},
+    imageminSVGO: {...},
+    imageminJpegtran: {...},
+    imageminMozjpeg: {...}
+  }
 }
 ...
 ```
@@ -48,7 +57,9 @@ const config = {
 
 - `includingDepthLevel` defines max level of nesting for including html files (for value `3`, it means you can "include file in included file of included file"). Default value is 3 which is enough for most projects. Please note that bigger level can 
 
-- `unCssIgnore` is an array that provide a list of selectors that should not be removed by UnCSS. For example, styles added by user interaction with the page (hover, click), since those are not detectable by UnCSS yet. Both literal names and regex patterns are recognized. [See more](https://github.com/uncss/uncss#options)
+- `unCssIgnore` is an array that provide a list of selectors that should not be removed by UnCSS. For example, styles added by user interaction with the page (hover, click), since those are not detectable by UnCSS yet. Both literal names and regex patterns are recognized. [See more about UnCSS](https://github.com/uncss/uncss#options).
+
+- `imagesCompression.enabled` is a boolean value that determines if images should be compressed during build process for production, based on gulp config. If you want to compress images manually, just set it to `false`. Otherwise, you can use default settings or apply your own. Objects like `imageminPngquant`, `imageminZopfli` etc. are basically _options_ arguments passed to imagemin functions and plugins. [See more about gulp-imagemin configuration](https://www.npmjs.com/package/gulp-imagemin).
 
 ### Rules and possibilities
  - You can create any structure in `src/views/` directory. It will be fully reproduced in the `dist/` folder.
