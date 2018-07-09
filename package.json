@@ -1,7 +1,7 @@
 {
-  "name": "simple-project-starter",
-  "version": "2.0.0",
-  "description": "Simple project starter based on gulp",
+  "name": "simple-gulp-starter",
+  "version": "1.0.0",
+  "description": "A simple project starter based on gulp and webpack.",
   "main": "gulpfile.js",
   "author": "Michał Kurczewski <michalkurczewski94@gmail.com>",
   "license": "ISC",
