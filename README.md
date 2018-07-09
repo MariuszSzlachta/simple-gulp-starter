@@ -26,12 +26,12 @@ npm install
 ### Usage
 Run localhost server with browserSync ([localhost:3000](localhost:3000))
 ```
-gulp
+npm start
 ```
 
 Rebuild project, minify and optimize all files, rewrite paths 
 ```
-gulp build
+npm build
 ```
 
 ### Configuration

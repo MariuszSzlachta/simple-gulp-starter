@@ -5,6 +5,10 @@
   "main": "gulpfile.js",
   "author": "Michał Kurczewski <michalkurczewski94@gmail.com>",
   "license": "ISC",
+  "scripts": {
+    "start": "node ./node_modules/gulp/bin/gulp.js",
+    "build": "node ./node_modules/gulp/bin/gulp.js build"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.1",
