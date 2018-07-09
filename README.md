@@ -13,9 +13,9 @@ A simple project starter based on gulp and webpack.
  - Error handling
 
 ### Installation
-First, download or copy repository to your desired local directory
+First, download or copy repository to your project directory
 ```
-git clone git@github.com:mkurczewski/simple-project-starter.git .
+git clone git@github.com:mkurczewski/simple-gulp-starter.git .
 ```
 
 Then install dependencies
